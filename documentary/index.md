@@ -2,7 +2,7 @@
 
 %NPM: @wrote/rm%
 
-`@wrote/rm` is A package to remove files and directories.
+`@wrote/rm` is a package to remove files and directories.
 
 ```sh
 yarn add -E @wrote/rm

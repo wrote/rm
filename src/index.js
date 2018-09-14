@@ -1,22 +1,50 @@
-import { debuglog } from 'util'
+import { unlink, rmdir, lstat } from 'fs'
+import readDirStructure from '@wrote/read-dir-structure'
+import makePromise from 'makepromise'
+import { join } from 'path'
 
-const LOG = debuglog('@wrote/rm')
-
-/**
- * A package to remove files and directories.
- * @param {Config} config Options for the program.
- * @param {boolean} config.shouldRun A boolean option.
- */
-export default async function rm(config) {
-  const {
-    type,
-  } = config
-  LOG('@wrote/rm called with %s', type)
-  return type
+const removeFile = async (path) => {
+  await makePromise(unlink, path)
 }
 
-/* documentary types/index.xml */
 /**
- * @typedef {Object} Config Options for the program.
- * @prop {boolean} shouldRun A boolean option.
+ * Removes files and directories.
+ * @param {string} path Path to remove.
  */
+const removeDir = async (path) => {
+  const { content } = await readDirStructure(path)
+  const files = Object.keys(content).filter((k) => {
+    const { type } = content[k]
+    if (type == 'File') return true
+  })
+  const dirs = Object.keys(content).filter((k) => {
+    const { type } = content[k]
+    if (type == 'Directory') return true
+  })
+  const filesFullPaths = files.map(file => join(path, file))
+  await Promise.all(
+    filesFullPaths.map(removeFile)
+  )
+  const dirsFullPaths = dirs.map(dir => join(path, dir))
+  await Promise.all(
+    dirsFullPaths.map(removeDir)
+  )
+  await makePromise(rmdir, path)
+}
+
+/**
+ * Removes a path from the filesystem.
+ * @param {string} path Path to the file or directory to remove.
+ */
+const rm = async (path) => {
+  const s = await makePromise(lstat, path)
+  if (s.isDirectory()) {
+    await removeDir(path)
+  } else {
+    await removeFile(path)
+  }
+}
+
+export default rm
+
+/* documentary types/index.xml */
