@@ -7,14 +7,13 @@ The package is available by importing its default function:
 import rm from '@wrote/rm'
 ```
 
-```### rm
+```## rm
 [
-  ["arg1", "string"],
-  ["arg2?", "boolean"]
+  ["path", "string"]
 ]
 ```
 
-Call this function to get the result you want.
+Removes a path to either a file or directory.
 
 %EXAMPLE: example/example.js, ../src => @wrote/rm%
 

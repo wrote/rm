@@ -1,8 +1,8 @@
 # @wrote/rm
 
-[![npm version](https://badge.fury.io/js/@wrote/rm.svg)](https://npmjs.org/package/@wrote/rm)
+[![npm version](https://badge.fury.io/js/%40wrote%2Frm.svg)](https://npmjs.org/package/@wrote/rm)
 
-`@wrote/rm` is A package to remove files and directories.
+`@wrote/rm` is a package to remove files and directories.
 
 ```sh
 yarn add -E @wrote/rm
@@ -12,10 +12,9 @@ yarn add -E @wrote/rm
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-  * [`rm(arg1: string, arg2?: boolean)`](#mynewpackagearg1-stringarg2-boolean-void)
+- [`rm(path: string)`](#rmpath-string-void)
 - [TODO](#todo)
 - [Copyright](#copyright)
-
 ## API
 
 The package is available by importing its default function:
@@ -24,22 +23,54 @@ The package is available by importing its default function:
 import rm from '@wrote/rm'
 ```
 
-### `rm(`<br/>&nbsp;&nbsp;`arg1: string,`<br/>&nbsp;&nbsp;`arg2?: boolean,`<br/>`): void`
+## `rm(`<br/>&nbsp;&nbsp;`path: string,`<br/>`): void`
 
-Call this function to get the result you want.
+Removes a path to either a file or directory.
 
 ```js
 /* yarn example/ */
 import rm from '@wrote/rm'
+import clone from '../clone'
+import readDirStructure from '@wrote/read-dir-structure'
+
+const printContent = async (p) => {
+  const { content } = await readDirStructure(p)
+  console.log(JSON.stringify(content, null, 2))
+}
 
 (async () => {
-  await rm()
+  // 0. SETUP: create a temp directory to remove
+  await clone('example/dir', 'example/temp')
+  console.log('Content before:')
+  await printContent('example/temp')
+
+  // 1. REMOVE the directory
+  await rm('example/temp/dir')
+
+  // 2. VALIDATE the removal
+  console.log('Content after:')
+  await printContent('example/temp')
 })()
 ```
 
+```
+Content before:
+{
+  "dir": {
+    "content": {
+      "example.txt": {
+        "type": "File"
+      }
+    },
+    "type": "Directory"
+  }
+}
+Content after:
+{}
+```
 ## TODO
 
-- [ ] Add a new item to the todo list.
+- [ ] Test and unlink symbolic links when necessary.
 
 ## Copyright
 

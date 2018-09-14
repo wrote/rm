@@ -1,7 +1,7 @@
 
 ## TODO
 
-- [ ] Add a new item to the todo list.
+- [ ] Test and unlink symbolic links when necessary.
 
 ## Copyright
 
