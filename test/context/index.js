@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import { lstat } from 'fs'
 import makePromise from 'makepromise'
-import cloneDir from '../../clone'
+import clone from '@wrote/clone'
 
 const FIXTURE = resolve(__dirname, '../fixture')
 const TEMP = resolve(__dirname, '../temp')
@@ -11,7 +11,7 @@ const TEMP = resolve(__dirname, '../temp')
  */
 export default class Context {
   async _init() {
-    await cloneDir(this.TEMP_FIXTURE, this.TEMP)
+    await clone(this.TEMP_FIXTURE, this.TEMP)
   }
   async _destroy() {
     // remove TEMP dir which this package and `temp-context` is implemented
