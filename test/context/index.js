@@ -14,18 +14,6 @@ export default class Context extends TempContext {
     await super._init()
     await clone(this.FIXTURE_DIR, this.TEMP)
   }
-  /**
-   * Check if the path exists on the filesystem.
-   * @param {string} path Path to check.
-   */
-  async exists(path) {
-    try {
-      await makePromise(lstat, path)
-      return true
-    } catch (err) {
-      return false
-    }
-  }
   get FIXTURE_DIR() {
     return join(FIXTURE, 'dir')
   }
