@@ -1,3 +1,9 @@
+## 27 September 2018
+
+### 1.1.0
+
+- [feature] Remove symlink.
+
 ## 15 September 2018
 
 ### 1.0.0
