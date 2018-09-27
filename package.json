@@ -51,14 +51,14 @@
   },
   "homepage": "https://github.com/wrote/rm#readme",
   "devDependencies": {
-    "@wrote/clone": "1.0.0",
-    "@wrote/ensure-path": "1.0.2",
-    "alamode": "1.4.0",
-    "documentary": "1.15.2",
+    "@wrote/clone": "1.0.1",
+    "@wrote/ensure-path": "1.0.3",
+    "alamode": "1.5.1",
+    "documentary": "1.20.1",
     "eslint-config-artdeco": "1.0.1",
     "temp-context": "1.1.0",
     "yarn-s": "1.1.0",
-    "zoroaster": "3.1.2"
+    "zoroaster": "3.5.1"
   },
   "dependencies": {
     "@wrote/read-dir-structure": "1.0.1",
