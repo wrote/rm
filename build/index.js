@@ -15,7 +15,7 @@ const removeDir = async (path) => {
   const { content } = await readDirStructure(path)
   const files = Object.keys(content).filter((k) => {
     const { type } = content[k]
-    if (type == 'File') return true
+    if (type == 'File' || type == 'SymbolicLink') return true
   })
   const dirs = Object.keys(content).filter((k) => {
     const { type } = content[k]
@@ -37,6 +37,7 @@ const removeDir = async (path) => {
  * @param {string} path Path to the file or directory to remove.
  */
 const rm = async (path) => {
+  /** @type {import('fs').Stats} */
   const s = await makePromise(lstat, path)
   if (s.isDirectory()) {
     await removeDir(path)
