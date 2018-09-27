@@ -1,23 +1,18 @@
-import { resolve } from 'path'
+import { join } from 'path'
 import { lstat } from 'fs'
 import makePromise from 'makepromise'
 import clone from '@wrote/clone'
+import TempContext from 'temp-context'
 
-const FIXTURE = resolve(__dirname, '../fixture')
-const TEMP = resolve(__dirname, '../temp')
+const FIXTURE = 'test/fixture'
 
 /**
  * A testing context for the package.
  */
-export default class Context {
+export default class Context extends TempContext {
   async _init() {
-    await clone(this.TEMP_FIXTURE, this.TEMP)
-  }
-  async _destroy() {
-    // remove TEMP dir which this package and `temp-context` is implemented
-  }
-  get TEMP_DIR() {
-    return resolve(TEMP, 'dir')
+    await super._init()
+    await clone(this.FIXTURE_DIR, this.TEMP)
   }
   /**
    * Check if the path exists on the filesystem.
@@ -31,16 +26,7 @@ export default class Context {
       return false
     }
   }
-  /**
-   * Path to the fixture file.
-   */
-  get FIXTURE() {
-    return resolve(FIXTURE, 'test.txt')
-  }
-  get TEMP_FIXTURE() {
-    return resolve(FIXTURE, 'dir')
-  }
-  get TEMP() {
-    return TEMP
+  get FIXTURE_DIR() {
+    return join(FIXTURE, 'dir')
   }
 }

@@ -56,6 +56,7 @@
     "alamode": "1.4.0",
     "documentary": "1.15.2",
     "eslint-config-artdeco": "1.0.1",
+    "temp-context": "1.1.0",
     "yarn-s": "1.1.0",
     "zoroaster": "3.1.2"
   },
