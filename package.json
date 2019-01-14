@@ -1,8 +1,9 @@
 {
   "name": "@wrote/rm",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A package to remove files and directories.",
   "main": "build",
+  "module": "src/index.js",
   "scripts": {
     "t": "zoroaster -a",
     "test": "yarn t test/spec test/mask",
@@ -21,7 +22,8 @@
     "example/": "yarn e example/example.js"
   },
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "repository": {
     "type": "git",
