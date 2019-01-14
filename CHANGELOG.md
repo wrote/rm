@@ -1,5 +1,11 @@
 ## 14 January 2019
 
+### 1.1.2
+
+- [deps] Update `read-dir-structure` and `makepromise`.
+
+## 14 January 2019
+
 ### 1.1.1
 
 - [package] Add the "module" field.
