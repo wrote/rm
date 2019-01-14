@@ -13,8 +13,8 @@ yarn add -E @wrote/rm
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
 - [`rm(path: string)`](#rmpath-string-void)
-- [TODO](#todo)
 - [Copyright](#copyright)
+
 ## API
 
 The package is available by importing its default function:
@@ -68,12 +68,9 @@ Content before:
 Content after:
 {}
 ```
-## TODO
-
-- [ ] Test and unlink symbolic links when necessary.
 
 ## Copyright
 
-(c) [Wrote][1] 2018
+(c) [Wrote][1] 2019
 
 [1]: https://wrote.cc

@@ -13,7 +13,7 @@
     "test-watch": "yarn test -w",
     "lint": "eslint .",
     "doc": "NODE_DEBUG=doc doc documentary -o README.md",
-    "b": "alamode src -o build",
+    "b": "alamode src -o build -s",
     "d": "NODE_DEBUG=doc doc src/index.js -g",
     "build": "yarn-s d b doc",
     "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
@@ -52,13 +52,13 @@
   "homepage": "https://github.com/wrote/rm#readme",
   "devDependencies": {
     "@wrote/clone": "1.1.0",
-    "@wrote/ensure-path": "1.0.3",
-    "alamode": "1.5.1",
+    "@wrote/ensure-path": "1.0.4",
+    "alamode": "1.6.1",
     "documentary": "1.20.1",
     "eslint-config-artdeco": "1.0.1",
-    "temp-context": "1.2.0",
+    "temp-context": "2.1.0",
     "yarn-s": "1.1.0",
-    "zoroaster": "3.5.1"
+    "zoroaster": "3.6.6"
   },
   "dependencies": {
     "@wrote/read-dir-structure": "1.0.1",

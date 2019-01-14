@@ -49,5 +49,3 @@ const rm = async (path) => {
 module.exports=rm
 
 /* documentary types/index.xml */
-
-//# sourceMappingURL=index.js.map
