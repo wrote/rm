@@ -1,8 +1,8 @@
-import { makeTestSuite } from 'zoroaster'
+import makeTestSuite from '@zoroaster/mask'
 import Context from '../context'
 import rm from '../../src'
 
-const ts = makeTestSuite('test/result', {
+export default makeTestSuite('test/result', {
   /**
    * Get results.
    * @param {string} input
@@ -21,5 +21,3 @@ const ts = makeTestSuite('test/result', {
   },
   context: Context,
 })
-
-export default ts

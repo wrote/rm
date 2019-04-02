@@ -14,6 +14,6 @@ import rm from '@wrote/rm'
 
 Removes a path to either a file or directory.
 
-%EXAMPLE: example/example.js, ../src => @wrote/rm%
+%EXAMPLE: example/example, ../src => @wrote/rm%
 
-%FORK example example/example%
+%FORK example/example%

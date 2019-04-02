@@ -1,14 +1,14 @@
-// removes a directory
+## removes a directory
 test/temp/dir
 
 /**/
 
-// removes a file
+## removes a file
 test/temp/dir/1.txt
 
 /**/
 
-// throws an error when file does not exist
+## throws an error when file does not exist
 test/temp/dir/does-not-exist.txt
 
 /* error */
