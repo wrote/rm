@@ -1,3 +1,9 @@
+## 18 April 2019
+
+### [1.1.4](https://github.com/wrote/rm/compare/v1.1.3...v1.1.4)
+
+- [deps] Update and unlock dependencies.
+
 ## 2 April 2019
 
 ### [1.1.3](https://github.com/wrote/rm/compare/v1.1.2...v1.1.3)
