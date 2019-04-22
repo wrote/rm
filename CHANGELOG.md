@@ -1,3 +1,11 @@
+## 22 April 2019
+
+### [1.1.5](https://github.com/wrote/rm/compare/v1.1.4...v1.1.5)
+
+- [types] Cast types for _GCC_:
+  * `/** @type {!fs.Stats} */`
+  * `Object.keys(/** @type {!Object} */ (content))`
+
 ## 18 April 2019
 
 ### [1.1.4](https://github.com/wrote/rm/compare/v1.1.3...v1.1.4)
