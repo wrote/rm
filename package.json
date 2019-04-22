@@ -1,6 +1,6 @@
 {
   "name": "@wrote/rm",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A package to remove files and directories.",
   "main": "build/index.js",
   "module": "src/index.js",
