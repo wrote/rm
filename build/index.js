@@ -13,14 +13,16 @@ const removeFile = async (path) => {
  */
 const removeDir = async (path) => {
   const { content } = await readDirStructure(path)
-  const files = Object.keys(content).filter((k) => {
-    const { type } = content[k]
-    if (type == 'File' || type == 'SymbolicLink') return true
-  })
-  const dirs = Object.keys(content).filter((k) => {
-    const { type } = content[k]
-    if (type == 'Directory') return true
-  })
+  const files = Object.keys(/** @type {!Object} */ (content))
+    .filter((k) => {
+      const { type } = content[k]
+      if (type == 'File' || type == 'SymbolicLink') return true
+    })
+  const dirs = Object.keys(/** @type {!Object} */ (content))
+    .filter((k) => {
+      const { type } = content[k]
+      if (type == 'Directory') return true
+    })
   const filesFullPaths = files.map(file => join(path, file))
   await Promise.all(
     filesFullPaths.map(removeFile)
@@ -37,8 +39,9 @@ const removeDir = async (path) => {
  * @param {string} path Path to the file or directory to remove.
  */
 const rm = async (path) => {
-  /** @type {import('fs').Stats} */
-  const s = await makePromise(lstat, path)
+  const s = /** @type {!fs.Stats} */ (
+    await makePromise(lstat, path)
+  )
   if (s.isDirectory()) {
     await removeDir(path)
   } else {
@@ -47,5 +50,10 @@ const rm = async (path) => {
 }
 
 module.exports=rm
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('fs').Stats} fs.Stats
+ */
 
 /* documentary types/index.xml */
